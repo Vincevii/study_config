@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>顶部导航条</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./fa/css/all.css">
+    <style>
+        body{
+            font: 14px/1.5;
+        }
+        /* 设置外部容器 */
+        .top-bar-wrap{
+            width: 100%;
+            background-color: #E3E4E5;
+            border-bottom: 1px #ddd solid;
+            /* 垂直居中，不设置高度，使文字垂直居中 */
+            line-height: 30px;
+            height: 30px;
+        }
+        /* 设置内部容器 */
+        .top-bar{
+            width: 1190px;
+            /* 设置水平居中 */
+            margin:0 auto;
+            overflow: hidden;
+        }
+        .top-bar a ,
+        .top-bar span,
+        .top-bar i {
+            color: #999;
+            text-decoration: none;
+        }
+        .location{
+            float:left
+        }
+        .location .fas {
+            color: #f10215;
+        }
+        .city-list{
+            display: none;
+            width: 320px;
+            height: 436px;
+            background-color: white;
+            border: 1px solid rgb(204 204 204);
+            position: absolute;
+            box-shadow: 0 2px 2px rbga(0,0,0,.3);
+            z-index: 999;
+            top: 31px;
+        }
+        /* 当鼠标移入时，让citylist显示 */
+        .location:hover .city-list{
+            display: block;
+        }
+        .location:hover .currrent-city {
+            background-color: #fff;
+            color: #f10215;
+            border: 1px solid rgb(204 204 204);
+            border-bottom: none;
+            padding-bottom: 1px;
+        }
+        .currrent-city {
+            padding: 0 10px;
+            position: relative;
+            z-index: 9999;
+            border: 1px solid transparent;
+            border-bottom: none;
+        }
+        .top-bar a:hover,
+        .top-bar .high-light{
+            color: #f10215;
+        }
+        .shorctut{
+            float:right
+        }
+        .shorctut .line{
+            height: 10px;
+            width: 1px;
+            background-color: #999;
+            margin: 10px 12px;
+        }
+        .shorctut li {
+            float: left;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 外层容器 -->
+    <div class="top-bar-wrap">
+        <!-- 内部容器 -->
+        <div class="top-bar">
+            <!-- 左侧菜单 -->
+            <div class="location">
+                <div class="currrent-city">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a href="javascript:;">北京</a>
+                </div>
+                <div class="city-list">
+
+                </div>
+            </div>
+            <!-- 右侧菜单 -->
+            <ul class="shorctut">
+                <li >
+                    <a href="javascript:;">你好，请登录</a>
+                    <a class="high-light" href="javascript:;">免费注册</a>
+                </li>
+                <li class="line"></li>
+                <li><a href="javascript:;">我的订单</a></li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">我的</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">会员</a>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a class="high-light" href="javascript:;">企业采购</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <span>客户服务</span>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <span>网站导航</span>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <span>手机</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
