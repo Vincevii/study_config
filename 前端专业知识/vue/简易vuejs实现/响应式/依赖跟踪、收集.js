@@ -34,3 +34,4 @@ function autorun (update) {
 autorun(() => {
     dep.depend()
 })
+
