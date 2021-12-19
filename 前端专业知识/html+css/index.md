@@ -593,3 +593,140 @@ font: bold italix 50px/2 Times, serif;
     * white-space: nowrap
     * overflow: hidden
     * text-overflow: ellipsis
+
+# 背景
+
+* 所有背景设置的属性
+
+  * background-color 设置背景颜色
+  * background-image: url("") // 设置背景图片
+    * 颜色和图片可以同时设置，背景颜色会成为图片的背景色
+    * 如果背景图片小于元素，图片则会自动平铺铺满
+    * 如果背景图片大于元素，则一部分背景无法完全显示
+  * background-repeat 设置背景的重复方式
+    * repeat 默认值 背景沿着x轴，y轴双方向重复
+    * repeat-x 背景沿着x轴延着方向重复
+    * repeat-y 背景沿着y轴延着方向重复
+    * no-repeat 图片不重复
+  * background-position 设置背景图片的位置
+    * 设置方式：
+      * 通过 top left right bottom center 几个表示方位来设置背景
+        * background-position: top center
+      * 通过偏移量指定图片位置
+        * 水平方向的偏移量 垂直方向的偏移量
+        * background-position: 100px 100px
+  * background-clip 设置背景的范围
+    * border-box 背景会出现在边框下边
+    * padding-box 背景不会出现在边框，只会出现在内容区和内边距
+    * content-box 背景只会出现在内容区
+  * background-origin 设置图片的偏移量计算的原点
+    * padding-box：background-position从内边距开始计算
+    * content-box：背景图片的偏移量从内容区处计算
+    * border-box： 背景图片的偏移量从边框处开始计算
+  * background-size 背景的尺寸
+    * background-size: 100px 100px
+    * 只设置一个值的时候，则第二个值默认为auto
+    * background-size: 100% auto
+    * 可选值
+      * cover：图片比例不变，铺满元素
+      * contain：图片比例不变，将图片在元素中完整显示：也等于100% auto
+  * background-attachment
+    * 背景图片是否跟随元素滚动
+    * scroll 背景图片会跟随元素移动
+    * fixed 背景会固定在页面不会移动
+  * background
+    * 背景相关的简写属性，所有背景相关的都可以在这里面写，没有顺序要求
+    * background: #bfa url("") center center no-repeat
+
+## 渐变
+
+通过渐变可以设置一些复杂的背景颜色，可以从一个颜色向其他颜色过渡的效果
+
+渐变是图片，需要通过background-image来设置
+
+### 线性渐变
+
+* background-image: linear-gradient(to right,red,yellow)
+* linear-gradient沿着一条直线发生变化
+* 表示红色在开头，黄色在结尾，中间是过渡区域
+* 线性渐变的开头可以制定一个渐变的方向
+
+  * to left
+  * to right
+  * to bottom
+  * xxdeg: deg表示角度
+* 渐变可以制定多个颜色，多个颜色默认下平均分配
+
+  * 也可手动置顶渐变分布情况
+  * background-image: linear-gradient(to right,red 50px,white,blue,yellow 70px)
+
+### 径向渐变
+
+- background-image: radial-gradient(red,yellow)
+
+* 放射性的效果
+* 默认情况下径向渐变圆心形状根据元素的形状来计算
+
+  * 正方形 --》圆形
+  * 长方形---〉椭圆形
+  * 也可以手动置顶径向渐变的大小
+    * background-image: radial-gradient(100px 100px,red,yellow)
+    * circle
+    * ellipse
+  * 也可以指定渐变的位置
+    * background-image: radial-gradient(100px 100px at 0 0,red,yellow)
+
+# 表格
+
+* 通过table标签来创建一个表格
+* 通过tr来表示表格中的一行，有多少个tr表示有多少行
+* tr中使用td表示一个单元格，有几个td就有几个单元格
+* colspan 表示横向合并单元格
+* rowspan 表示纵向合并单元格
+
+## 长表格
+
+* 可以在table标签内把一个表格分成是三个部分：
+  * 头部 thead
+  * 主体 tbody
+  * 底部 tfoot
+
+## 表格的样式
+
+* table
+  * width
+  * border
+  * margin
+* td
+  * border-spacing 指定边框直接的距离
+  * border-collapse:collapse 设置边框的合并
+  * 默认情况下，元素在td中是垂直居中的，可以通过vertical-align设置
+    * display: table-cell    可以将元素设置为单元格td
+    * 然后通过vertical-align:middle去设置垂直居中
+* 如果表格中没有使用tbody，直接使用tr，那么浏览器会自动创建tbody，把tr全部放进去
+
+## 表单
+
+* form的属性
+  * action 表单要提交的服务器地址
+* form的子元素
+  * input
+    * type=text 文本框
+    * type=submit 提交按钮
+    * type=password 密码框
+    * type=radio 单选按钮
+      * 需要指定value属性，作为实际提交的值
+      * 通过name可以进行分组
+      * checked属性，可以设置为选中
+    * type=checkbox 多选
+      * 需要指定value属性，作为实际提交的值
+      * 通过name可以进行分组
+    * value input中展示的内容
+    * name提交的key值
+  * select
+    * option元素为选项
+      * option的value为提交的值
+      * selected 设置为选中
+    * name为提交的key
+
+# 动画
