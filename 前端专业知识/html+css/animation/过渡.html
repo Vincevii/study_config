@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1{
+            width: 800px;
+            height: 800px;
+            background-color: silver;
+            overflow: hidden;
+        }
+        .box1 div{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 100px;
+        }
+        .box2{
+            background-color: #bfa;
+            transition-duration: 2s;
+            transition-property: all;
+            transition-timing-function: linear;
+        }
+        .box1:hover div{
+            /* width: 200px;
+            height: 200px; */
+            /* transition:all 2s;
+            background-color: orange; */
+            margin-left: 700px;
+        }
+        .box3{
+            background-color: orange;
+            transition-property: all;
+            transition-duration: 2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+</body>
+</html>

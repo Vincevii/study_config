@@ -730,3 +730,33 @@ font: bold italix 50px/2 Times, serif;
     * name为提交的key
 
 # 动画
+## 过渡（transition）
+- 通过过渡可以制定一个属性发生变化时的切换方式
+- 通过过渡可以创建效果，提升用户体验
+  - transition-property （指定执行过渡的属性）
+    - 多个属性用，隔开
+    - 如果多个属性都需要过渡，则使用all关键字
+    - 大部分属性都支持过渡效果，过渡值必须是从一个有效值到另外一个有效值过渡
+    - transition-property: width,height
+  - transition-duration(指定过渡效果的持续时
+  - 间)
+    - 时间单位 s 和 ms
+    - 多个属性时间不一样也是，隔开
+    - transition-duration: 2s,1s
+  - transition-timing-function：过渡的时序函数
+    - 指定过渡的执行方式
+    - transition-timing-function:ease
+    - 可选值
+      - ease（默认）：慢速开始，先加速，再减速
+      - linear：匀速运动
+      - ease-in：加速运动
+      - ease-out：减速运动
+      - ease-in-out：先加速，后减速
+      - cubic-bezier()来指定时序函数
+        - https://cubic-bezier.com
+      - step(3, end)分步执行过渡效果
+        - 第一个参数表示分几步
+        - 第二个参数表示在每步开始还是结束执行
+  - transition-delay：过渡效果延迟，等待一段时间后执行
+    - transition-delay：2s
+- transition可以同时设置所有属性，如果需要写延迟，两个时间中第一个是持续时间
