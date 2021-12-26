@@ -1,0 +1,28 @@
+.box1,
+.p1 {
+  background-color: #bfa;
+}
+.box1 .box2 {
+  background-color: yellow;
+}
+.box1 .box2 .box4 {
+  background-color: #fff;
+}
+.box1 .box3 {
+  background-color: #fff;
+}
+.box5 {
+  width: 100px;
+}
+.box1:hover {
+  color: #bfa;
+}
+.p1 {
+  color: #bfa;
+}
+.p2 {
+  color: #bfa;
+}
+.p6 {
+  width: 200px;
+}

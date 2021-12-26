@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1{
+            width: 800px;
+            height: 800px;
+            background-color: silver;
+            overflow: hidden;
+        }
+        .box1 div{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 100px;
+        }
+        .box2{
+            background-color: #bfa;
+
+            /* animation-name: 要对当前元素生效的关键帧名字; */
+            animation-name: test;
+            
+            /* animation-duration: 动画执行时间; */
+            animation-duration: 2s;
+
+            /* 动画延时 */
+            animation-delay: 500ms;
+
+            animation-timing-function: ease;
+
+            /* 动画执行次数 */
+            animation-iteration-count: 3;
+
+            
+        }
+        .box1:hover div{
+            /* width: 200px;
+            height: 200px; */
+            /* transition:all 2s;
+            background-color: orange; */
+            margin-left: 700px;
+        }
+        .box3{
+            background-color: orange;
+            transition-property: all;
+            transition-duration: 2s;
+        }
+
+        @keyframes test {
+            from{
+                margin-left: 0px;
+            }
+
+            to{
+                margin-left: 700px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

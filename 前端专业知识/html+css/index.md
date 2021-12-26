@@ -760,3 +760,169 @@ font: bold italix 50px/2 Times, serif;
   - transition-delay：过渡效果延迟，等待一段时间后执行
     - transition-delay：2s
 - transition可以同时设置所有属性，如果需要写延迟，两个时间中第一个是持续时间
+
+## 动画（animation）
+动画和过渡类似，都是可以实现动态效果，不同的是过渡是某个属性发生变化才会触发，动画可以自动触发
+
+设置动画效果必须要先设置关键帧，关键帧设置了动画执行的每一个步骤
+```
+<!-- 设置关键帧 -->
+@keyframes test {
+	from{
+		margin-left: 0px;
+	}
+
+	to{
+		margin-left: 700px;
+	}
+}
+```
+- 动画属性
+  - animation-name: 要对当前元素生效的关键帧名字
+  - animation-duration: 动画执行时间
+  - animation-delay 动画延时
+  - animation-timing-function 动画时许函数
+  - animation-iteration-count 动画执行次数
+    - 可选值
+      - 次数
+      - infinite
+  - animation-direction 动画运行的方向
+    - 可选值
+      - 默认值 normal 从 from到to运行每次一样
+      - reverse 从to到normal运行，每次都是
+      - alternate 从from 到 to 重复执行动画时反向执行
+      - alternate-reverse 
+  - animation-play-state 动画执行状态
+    - 可选值
+      - running 默认值 动画执行
+      - paused 动画暂停
+  - animation-fill-mode 动画填充模式
+    - 可选值
+      - none 默认值 动画执行完毕，元素回到原来的位置
+      - forwards 动画执行完毕，元素停在动画最后的位置
+      - backwards 动画延时等待时，元素就会处于开始位置
+      - both 结合上forwards 和 backwards 
+  - animation可以同时设置所有属性，如果需要写延迟，两个时间中第一个是持续时间
+
+## 变形
+变形指通过css改变形状的形状或位置
+- 变形不会影响页面布局
+- transform 用来设置元素的变形效果
+  - 平移：
+    - translateX() 沿着X轴平移
+    - translateY() 沿着Y轴平移
+    - translateZ() 沿着Z轴平移
+      - 平移元素时，是相对于自身计算的
+        - 通过这个特性可以做到，不固定宽度然后水平垂直居中
+  - z轴平移：
+    - 调整元素在z轴的位置，距离越大，离人越远
+    - z轴平移，属于立体效果，默认情况下网页不支持透视的，如果需要看见效果，要设置网页的视距
+      - 用perspective设置，人眼与网页的距离
+  - 旋转：通过旋转可以使元素沿着x y 或 z 旋转指定的角度
+    - 通过旋转可以使元素沿着x y 或 z旋转指定的角度
+    - rotateX
+    - rotateY
+    - rotateZ
+  - 缩放
+    - 把元素放大或缩小的函数
+    - scaleX
+    - scaleY
+    - scale 双方向
+
+# less
+less是css的预处理语言
+
+示例在实践
+- 变量语法
+  - 在变量中可以存储一个任意的值
+  - 语法：@变量名
+  - 使用变量时，如果直接使用则以 @变量名 形式使用即可
+    - 作为类名或者一部分值使用时，必须以 @{变量名} 形式使用
+  - $width 表示值跟width一致
+- & 符号表示 外层父元素
+- extend 扩展
+  - 对当前选择器，扩展指定选择器样式
+  - .p1:extend(.p1)
+  - .p3{.p1()} //mixin进来
+- 混合函数 mixin
+  - 混合函数中可以直接设置变量
+- 在less中所有树枝都可以进行运算
+- 可以import其他less
+  - @import('.....')
+  - 用于模块化
+
+# 弹性盒模型
+## 简介
+- flex (弹性盒，伸缩盒)
+  - 是css中布局手段，用于代替浮动完成页面布局
+  - flex可以使元素具有弹性，让元素可以跟随页面大小的改变而改变
+  - 弹性容器
+    - 要是用弹性盒，必须将一个元素设置为弹性容器
+    - 通过display来设置弹性容器
+      - display: flex  设置为块级弹性容器
+      - display: inline-flex 设置为行内弹性容器
+  - 弹性元素
+    - 弹性容器的直接子元素，是弹性元素（弹性项）
+    - 一个元素可以同时是弹性容器和弹性元素
+- 弹性容器样式
+  - flex-direction 指定容器中弹性元素的排列方式
+    - 可选值
+      - row 默认值 弹性元素在容器中水平排列（左向右）
+        - 主轴自左向右
+      - row-reverse 反向水平
+        - 主轴自右向左
+      - column 垂直 自上向下
+      - colum-reverse 反向垂直 自下向上
+    - 主轴
+      - 弹性元素排列方向称为主轴
+    - 侧轴
+      - 与主轴垂直方向的称为侧轴
+  - flex-wrap 设置弹性元素是否在弹性容器中自动换行
+    - 可选值
+      - nowrap 默认值 不会自动换行
+      - wrap 元素沿着主轴方向自动换行
+      - wrap-reverse 元素沿着主轴的反方向换行
+  - flex-flow wrap和direction的简写属性
+  - justify-content 
+    - 如何分配主轴上的空白空间（主轴元素如何排列）
+    - 可选值
+      - flex-start 元素沿着主轴起边排列
+      - flex-end 元素沿着终边排列
+      - center 元素居中排列
+      - space-around 空白分布在元素两侧
+      - space-evenly 空白分布到元素单侧
+      - space-between 空白均匀分布到元素间
+  - align-items
+    - 元素在辅轴上的对齐方式
+    - 元素间的关系
+    - 可选值
+      - stretch 默认值 将元素的长度设置为相同的值
+      - flex-start 元素不会拉伸，沿着幅轴起边对齐
+      - flex-end 终边对齐
+      - center 居中对齐
+      - baseline 基线对齐
+  - align-content 辅轴空白空间的分布
+    - 可选值与justify-content一致
+- 弹性元素样式
+  - flex-grow 用来指定弹性元素伸展的系数
+    - 当父元素有多余的空间时，子元素如何伸展
+    - 父元素的剩余空间，会按照比例进行分配
+  - flex-shrink 指定弹性元素的收缩性
+    - 当父元素空间，不足以容纳所有字元素时，如何对自元素收缩
+    - 值越大，收缩越多，为0时不收缩
+    - 缩减系数计算方式比较复杂，缩减多少是根据缩减系数 和 元素大小来计算
+  - align-self 用来覆盖当前弹性元素上的align-items
+  - flex-basis 指定的事元素在主轴的基础长度
+    - 如果主轴时横向的 则 该值指定的就是元素的长度
+    - 如果主轴时纵向的 则 该值指定的就是元素高度
+      - 默认值为 auto 表示参考元素自身的高度和宽度
+      - 如果传递了具体数值，则以该值为准
+  - flex 可以设置弹性元素所有的三个样式
+    - 增长 缩减 基础
+      - initial ”flex: 0 1 auto“ 
+      - auto “flex: 1 1 auto”
+      - none “flex: 0 0 auto”  没有弹性
+    - flex：1
+  - flex-order 决定弹性元素的顺序
+
+

@@ -1,0 +1,50 @@
+// less中的单行注释
+.box1{
+    background-color: #bfa;
+    .box2 {
+        background-color: yellow;
+
+        .box4 {
+            background-color: #fff;
+        }
+    }
+    .box3 {
+        background-color: #fff;
+    }
+}
+
+// 变量
+@a: 100px;
+.box5{
+    width: @a
+}
+
+// 父元素 &表示外层父元素
+.box1 {
+    &:hover{
+        color: #bfa;
+    }
+}
+
+// 拓展
+.p1:extend(.box1){
+    color:#bfa;
+}
+
+.p2 {
+    .p1()
+}
+
+// 此时不是类选择器，而是一个变量，可以用到别的样式中
+.p4(){
+    width: auto;
+}
+
+// 混合函数 可以传入变量
+.p5(@w){
+    width: @w;
+}
+
+.p6 {
+    .p5(200px)
+}
