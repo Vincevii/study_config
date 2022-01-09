@@ -262,3 +262,5 @@ DOM操作时候很少会跨级别操作节点，只比较同级别的节点
 ![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/H8M5QJDxMHrBPOs1OFIWuxw354WxNWGLhTt5D51vDv7tKQJxPMIoJBiaZVnGVEyulmeDO6XoaOgg0wcAcfib0huw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
 > updateChildren(核中核:判断子节点的差异)
+
+
